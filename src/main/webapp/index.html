@@ -283,8 +283,13 @@
             <tbody>
             <tr ng-repeat="order in orderList.orders" class="list-element">
 
+<<<<<<< HEAD
                 <td ng-mouseover="checked=true" ng-mouseleave="checked=false">
                     {{order.name}}
+=======
+                <td ng-mouseover="checked=true" ng-mouseleave="checked=false" style="font-family: 'Anton', sans-serif; font-size: 17px;">
+                    {{order.orderName}}
+>>>>>>> be6480699f773e84d37db20e4b3d4985212a4d11
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <button type="button" ng-show="checked" onclick="myLayout.open('east')"

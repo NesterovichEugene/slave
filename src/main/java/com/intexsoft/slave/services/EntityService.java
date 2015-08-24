@@ -12,10 +12,7 @@ public interface EntityService<T extends AbstractEntity> {
 	 
 	public Iterable<T> findAll(Iterable<Long> identities);
 	
-	
-	public T update(T entity);
-	
-	
+		
 	public T findOne(Long identity);
 	
 	

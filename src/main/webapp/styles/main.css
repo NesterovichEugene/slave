@@ -1,6 +1,8 @@
 h2 {
-    font-family: 'Poiret One', cursive;
-    color: #04B431 !important;
+    font-family: 'Berkshire Swash', cursive;
+    color: #5CB85C !important;
+    border: 2px solid;
+    border-color:  #5CB85C transparent;
     text-align: center;
 }
 
@@ -44,6 +46,10 @@ h2 {
     font-family: 'Anton', sans-serif;
 }
 
+.center.btn{
+    margin-right: -5px;
+}
+
 .my-btn{
     margin-top: 0px;
     width: 25px;
@@ -64,8 +70,14 @@ h2 {
     position: absolute;
     width: 94%;
     height: 82%;
-    overflow: auto;
-    font-family: 'Anton', sans-serif;
+    overflow: visible;
+    font-family: 'Hind', sans-serif;
+    font-size: 19px;
+    color: #4A454F;
+}
+.center.list{
+    overflow: visible;
+    margin-top: 10px;
 }
 
 .list.work {
@@ -87,4 +99,12 @@ h2 {
 
 .order-date{
     margin-left: 300px
+}
+
+.textbox{
+    text-align: center;
+    font-size: 16px;
+    font-family: inherit;
+    color: #4B4B4B;
+    font-weight: bold;
 }

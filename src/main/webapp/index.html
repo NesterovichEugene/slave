@@ -6,18 +6,20 @@
     <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Hind:600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
 
     <script src="scripts\angular\angular.js"></script>
     <script src="scripts\jquery.js"></script>
-    <script src="scripts\scrollbar.js"></script>
-    <script src="scripts\perfect-scrollbar.min.js"></script>
-    <script src="scripts\perfect-scrollbar.jquery.min.js"></script>
     <script src="scripts\jquery.layout.js"></script>
     <script src="scripts\controller\orderList.js"></script>
     <script src="scripts\controller\workList.js"></script>
     <script src="scripts\controller\myapp.js"></script>
     <script src="scripts\controller\editTool.js"></script>
     <script src="scripts\controller\tree.js"></script>
+    <script src="scripts\scrollbar.js"></script>
+    <script src="scripts\perfect-scrollbar.jquery.min.js"></script>
+    <script src="scripts\perfect-scrollbar.min.js"></script>
 
     <script> <!--создание и настройка layout-->
     var myLayout;
@@ -35,6 +37,7 @@
     <link rel="stylesheet" href="styles\bootstrap\css\bootstrap.css">
     <link rel="stylesheet" href="styles\main.css">
     <link rel="stylesheet" href="styles\editToolStyle.css">
+    <link rel="stylesheet" href="styles\dropdown.css">
     <link rel="stylesheet" href="styles\perfect-scrollbar.min.css">
 
     <title>Slave trade</title>
@@ -82,9 +85,9 @@
         <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
                placeholder="Start date"/>
         <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
-               placeholder="Execute date"/>
+               placeholder="Execution date"/>
         <textarea class="form-control new-order-text-area" rows="3" ng-model="comment"
-                          placeholder="Comment"></textarea>
+                  placeholder="Comment"></textarea>
         <button type="button" class="btn btn-info" style="float: right"><span
                 class="glyphicon glyphicon glyphicon-floppy-disk"></span> Save
         </button>
@@ -92,14 +95,14 @@
     <button type="button" ng-click="toggleTooltipCenter($event)" class="btn btn-success"><span
             class="glyphicon glyphicon-plus"></span> Add
     </button>
-    <div class="list" id="Scrollbar3">
-        <ul ng-repeat="node in tree.nodes" type="none" >
-            <div class="center-ul" >
-                <span contenteditable="true">{{node.name}}</span>
+    <div class="list center" id="Scrollbar3">
+        <ul ng-repeat="node in tree.nodes" type="none">
+            <div class="center-ul">
+                <span contenteditable="true" style="margin-left: 5px">{{node.name}}</span>
                 <span contenteditable="true" class="order-date">{{node.startDate}} - {{node.executeDate}}</span>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <button type="button" class="btn btn-danger my-btn" title="Remove"><span
+                        <button type="button" class="btn btn-danger my-btn center" title="Remove"><span
                                 class="glyphicon glyphicon-remove"></span></button>
                     </li>
                 </ul>
@@ -109,7 +112,7 @@
                     <tbody>
                     <tr ng-repeat="child in node.children">
                         <td ng-mouseover="checked=true" ng-mouseleave="checked=false" class="list-element"
-                            style="font-family: 'Anton', sans-serif; font-size: 19px;">
+                            style="font-size: 19px;">
                             {{child.name}}
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
@@ -135,15 +138,19 @@
 
 <div class="ui-layout-east">
     <h2><span ng-hide="false" class="glyphicon glyphicon-time" title="Required"></span>Properties</h2>
-    <input type="text" class="form-control" placeholder="Order name" required="" autofocus="">
-    <input type="text" class="form-control" placeholder="Start date" required="" autofocus="">
-    <input type="text" class="form-control" placeholder="Execution date" required="" autofocus="">
-    <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+    <input type="text" class="form-control textbox" placeholder="Order name" required="" autofocus="">
+    <input type="text" class="form-control textbox" placeholder="Start date" required="" autofocus="">
+    <input type="text" class="form-control textbox" placeholder="Execution date" required="" autofocus="">
+    <textarea class="form-control textbox" rows="3" placeholder="Comment"></textarea>
 
     <div class="tooltip-work" ng-click="$event.stopPropagation()" ng-show="showtooltipWork">
         <h3 class="new-order">Edit work</h3>
         <input type="text" class="form-control" required="" autofocus="" ng-model="workName"
                placeholder="Work name"/>
+        <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
+               placeholder="Start date"/>
+        <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
+               placeholder="Execution date"/>
                 <textarea class="form-control new-order-text-area" rows="3" ng-model="description"
                           placeholder="Description"></textarea>
         <button type="button" class="btn btn-success" style="float: left"><span
@@ -157,6 +164,10 @@
                 <h3 class="new-order">New work</h3>
                 <input type="text" class="form-control" required="" autofocus="" ng-model="workName"
                        placeholder="Work name"/>
+                <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
+                       placeholder="Start date"/>
+                <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
+                       placeholder="Execution date"/>
                 <textarea class="form-control new-order-text-area" rows="4" ng-model="description"
                           placeholder="Description"></textarea>
                 <button type="button" class="btn btn-info" style="float: left"><span
@@ -208,16 +219,54 @@
                 <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
                        placeholder="Start date"/>
                 <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
-                       placeholder="Execute date"/>
-                <ul>
-                    <li>
-                        <ul>
-                            <li>Required</li>
-                            <li>Not required</li>
-                        </ul>
-                        dfd <!-- put this below so IE and FF render the same! -->
-                    </li>
-                </ul>
+                       placeholder="Execution date"/>
+
+                <div id="dd" class="wrapper-dropdown-2" tabindex="1">
+                    <span>Type</span>
+                    <ul class="dropdown">
+                        <li>Required</li>
+                        <li>Not Required</li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    function DropDown(el) {
+                        this.dd = el;
+                        this.placeholder = this.dd.children('span');
+                        this.opts = this.dd.find('ul.dropdown > li');
+                        this.val = '';
+                        this.index = -1;
+                        this.initEvents();
+                    }
+                    DropDown.prototype = {
+                        initEvents: function () {
+                            var obj = this;
+                            obj.dd.on('click', function (event) {
+                                $(this).toggleClass('active');
+                                return false;
+                            });
+                            obj.opts.on('click', function () {
+                                var opt = $(this);
+                                obj.val = opt.text();
+                                obj.index = opt.index();
+                                obj.placeholder.text(obj.val);
+                            });
+                        },
+                        getValue: function () {
+                            return this.val;
+                        },
+                        getIndex: function () {
+                            return this.index;
+                        }
+                    }
+                    $(function () {
+                        var dd = new DropDown($('#dd'));
+                        $(document).click(function () {
+                            // all dropdowns
+                            $('.wrapper-dropdown-2').removeClass('active');
+                        });
+                    });
+                </script>
+
                 <textarea class="form-control new-order-text-area" rows="3" ng-model="comment"
                           placeholder="Comment"></textarea>
                 <button type="button" class="btn btn-info" style="float: right"><span
@@ -234,7 +283,7 @@
             <tbody>
             <tr ng-repeat="order in orderList.orders" class="list-element">
 
-                <td ng-mouseover="checked=true" ng-mouseleave="checked=false" style="font-family: 'Anton', sans-serif; font-size: 17px;">
+                <td ng-mouseover="checked=true" ng-mouseleave="checked=false">
                     {{order.name}}
                     <ul class="nav navbar-nav navbar-right">
                         <li>

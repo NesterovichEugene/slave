@@ -1,5 +1,5 @@
 .tooltip{
-	background-color: #33B44D;
+	background-color: #5CB85C;
 	background-image:linear-gradient(top, #04B431, #04B431);
 	box-shadow: 0 1px 1px #ccc;
 	border-radius:5px;
@@ -8,6 +8,7 @@
 	position: absolute;
 	left: 75px;
 	opacity: 1;
+	transition: all 0.3s ease-out;
 }
 
 .tooltip.tool-center{
@@ -17,8 +18,8 @@
 .tooltip:after{
 	content:'';
 	position:absolute;
-	border:6px solid #33B44D;
-	border-color: transparent #33B44D transparent transparent;
+	border:6px solid #5CB85C;
+	border-color: transparent #5CB85C transparent transparent;
 	width:0;
 	height:0;
 	left: -12px;
@@ -42,7 +43,7 @@
 }
 
 .tooltip-east{
-	background-color: #33B44D;
+	background-color: #5CB85C;
 	background-image:linear-gradient(top, #04B431, #04B431);
 	box-shadow: 0 1px 1px #ccc;
 	border-radius:5px;
@@ -56,8 +57,8 @@
 .tooltip-east:after{
 	content:'';
 	position:absolute;
-	border:6px solid #33B44D;
-	border-color: transparent transparent transparent #33B44D;
+	border:6px solid #5CB85C;
+	border-color: transparent transparent transparent #5CB85C;
 	width:0;
 	height:0;
 	right: -12px;
@@ -81,23 +82,23 @@
 }
 
 .tooltip-work{
-	background-color: #12C8E4;
+	background-color: #5BC0DE;
 	background-image:linear-gradient(top, #04B431, #04B431);
 	box-shadow: 0 1px 1px #ccc;
 	border-radius:5px;
 	width: 290px;
 	padding: 10px;
 	position: absolute;
-	right: 260px;
-	top: 370px;
+	right: 245px;
+	top: 365px;
 	opacity: 1;
 }
 
 .tooltip-work:after{
 	content:'';
 	position:absolute;
-	border:6px solid #12C8E4;
-	border-color: transparent transparent transparent #12C8E4;
+	border:6px solid #5BC0DE;
+	border-color: transparent transparent transparent #5BC0DE;
 	width:0;
 	height:0;
 	right: -12px;
@@ -123,13 +124,13 @@
 .new-order{
 	font-family:'Cookie';
 	font-size: 35px;
-	color: #61E8FF;
+	color: white;
 	margin-top: 0px;
 	text-align: center;
 }
 
 .tooltip-work .new-order{
-	color: #04B431;
+	color: white;
 }
 
 .new-order-text-area{

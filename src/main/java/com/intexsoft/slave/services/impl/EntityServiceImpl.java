@@ -27,11 +27,7 @@ public abstract class EntityServiceImpl<T extends AbstractEntity> implements
 		return getRepository().findAll(identities);
 	}
 
-	public T update(T entity){
-	//	return (T) entityRepository.update(entity);
-		return null;
-		
-	}
+	
 
 	public T findOne(Long identity){
 		return (T) getRepository().findOne(identity);

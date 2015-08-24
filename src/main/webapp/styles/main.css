@@ -1,0 +1,90 @@
+h2 {
+    font-family: 'Poiret One', cursive;
+    color: #04B431 !important;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-family: 'Cookie';
+    font-size: 40px;
+}
+
+.ui-layout-resizer-north {
+    height: 0px !important;
+}
+
+.ui-layout-center {
+    background: #FFFFF0 !important;
+    overflow: visible !important;
+}
+
+.ui-layout-west {
+    background: #FFFFF0 !important;
+    overflow: visible !important;
+    z-index: 5 !important;
+}
+
+.ui-layout-east {
+    background: #FFFFF0 !important;
+    overflow: visible !important;
+    z-index: 5 !important;
+}
+
+.navbar-right {
+    margin-right: 20px;
+}
+
+.list-element .navbar-right{
+    margin-right: 0px;
+}
+
+.btn {
+    margin-right: 5px;
+    margin-top: 7px;
+    font-family: 'Anton', sans-serif;
+}
+
+.my-btn{
+    margin-top: 0px;
+    width: 25px;
+    height: 25px;
+}
+
+.glyphicon-remove{
+    left: -7px;
+    top: -2px
+}
+.glyphicon-edit{
+    left: -7px;
+    top: -2px
+}
+
+.list {
+    margin-top: 50px;
+    position: absolute;
+    width: 94%;
+    height: 82%;
+    overflow: auto;
+    font-family: 'Anton', sans-serif;
+}
+
+.list.work {
+    height: 40%;
+}
+
+.list-element:hover {
+    background: #CEE3F6;
+}
+
+.center-ul{
+    font-family: 'Anton', sans-serif;
+    height: 30px;
+    margin-left: -30px;
+    color: white;
+    font-size: 20px;
+    background: #4A454F;
+}
+
+.order-date{
+    margin-left: 300px
+}

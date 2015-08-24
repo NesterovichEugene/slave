@@ -1,0 +1,12 @@
+.settings
+.checkstyle
+.eclipse-pmd
+.springBeans
+/build
+/dev
+/.gradle
+/.externalToolBuilders
+.idea/
+/logs
+
+/bin/

@@ -22,47 +22,43 @@ import com.intexsoft.slave.services.OrderService;
 
 @RestController
 @RequestMapping("/frame_order")
-public class FrameOrderController
-{
+public class FrameOrderController {
 	@Autowired
 	private FrameOrderService frameOrderService;
-	
+
 	@Autowired
 	private OrderService orderService;
-	
+
 	@RequestMapping(value = "/{id}/loadOrders", method = RequestMethod.GET)
-	public List<Order> list(@RequestBody @Valid FrameOrder frameOrder)
-	{
+	public List<Order> listOrdersByFrameOrderId(@PathVariable("id") long id) {
+		FrameOrder frameOrder = frameOrderService.findOne(id);
+
 		return (List<Order>) orderService.findOrderByFrameOrder(frameOrder);
 	}
 
 	@RequestMapping(value = "/createFrameOrder", method = RequestMethod.POST)
-	public FrameOrder create(@RequestBody @Valid FrameOrder frameOrder)
-	{
+	public FrameOrder create(@RequestBody @Valid FrameOrder frameOrder) {
 		return frameOrderService.create(frameOrder);
 	}
 
 	@RequestMapping(value = "/loadFrameOrders", method = RequestMethod.GET)
-	public List<FrameOrder> list()
-	{
+	public List<FrameOrder> listFrameOrders() {
 		return (List<FrameOrder>) frameOrderService.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public FrameOrder get(@PathVariable("id") long id)
-	{
+	public FrameOrder get(@PathVariable("id") long id) {
 		return frameOrderService.findOne(id);
 	}
 
 	@RequestMapping(value = "/editFrameOrder/{id}", method = RequestMethod.PUT)
-	public FrameOrder update(@PathVariable("id") long id, @RequestBody @Valid FrameOrder frameOrder)
-	{
+	public FrameOrder update(@PathVariable("id") long id,
+			@RequestBody @Valid FrameOrder frameOrder) {
 		return frameOrderService.create(frameOrder);
 	}
 
 	@RequestMapping(value = "/deleteFrameOrder/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@PathVariable("id") long id)
-	{
+	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {
 		frameOrderService.delete(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}

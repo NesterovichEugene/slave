@@ -1,16 +1,25 @@
 angular.module('tree', [])
-    .controller('TreeController', function() {
+    .controller('TreeController', function ($http) {
         var tree = this;
 
-        tree.nodes=[
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
-            {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"}
+        $http.get('/service/frame_order/loadFrameOrders').success(function (data) {
+            tree.nodes = data;
+            
+            tree.nodes.forEach(function (node) {
+                node.frameOrderStartTime = node.frameOrderStartTime.toString().substring(0, 10).replace(/\-/g, '.');
+                node.frameOrderExecutionTime = node.frameOrderExecutionTime.toString().substring(0, 10).replace(/\-/g, '.');
+            });
+        });
 
-        ];
+        //tree.nodes=[
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"},
+        //    {name: 'Order1', children:[{name:'ept'},{name:'eklmn'},{name:'elki-palki'}], startDate:"01.01.2001", executeDate:"02.03.2001"}
+        //
+        //];
         //tree.delete = function(data) {
         //    tree.nodes = [];
         //};

@@ -1,7 +1,8 @@
-angular.module('orderList', []).controller('orderListCtrl', function($http) {
-	var orderList = this;
+var app= angular.module('orderList', [])
+	.controller('orderListCtrl', function($http, $scope) {
+	$scope.orderList = this;
 	$http.get('/service/orders/loadOrders').success(function(data) {
-		orderList.orders = data
+		$scope.orderList.orders = data
 	});
 });
 

@@ -26,12 +26,14 @@
     margin-top: -3px;
     border-width: 6px 6px 0 6px;
     border-style: solid;
+    text-align: center;
     border-color: grey transparent;
 }
 
 .wrapper-dropdown-2 .dropdown {
     position: absolute;
     width: 100%;
+    text-align: center;
     top: 100%;
     right: 0px;
     border: 1px solid;
@@ -51,13 +53,16 @@
 
 .wrapper-dropdown-2 .dropdown li:hover {
     color: #5BC0DE;
+    text-align: center;
 }
 
 .wrapper-dropdown-2.active:after {
     border-width: 0 6px 6px 6px;
+    text-align: center;
 }
 
 .wrapper-dropdown-2.active .dropdown {
     opacity: 1;
+    text-align: center;
     pointer-events: auto;
 }

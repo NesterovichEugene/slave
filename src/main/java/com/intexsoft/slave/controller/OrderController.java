@@ -80,8 +80,9 @@ public class OrderController
 	}
 	
 	@RequestMapping(value = "/{id}/loadWorks", method = RequestMethod.GET)
-	public List<Work> list(@RequestBody @Valid Order order)
+	public List<Work> listOrderWorks(@PathVariable("id") long id)
 	{
+		Order order = orderService.findOne(id);
 		return (List<Work>) workService.findWorkByOrder(order);
 	}
 }

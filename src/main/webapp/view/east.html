@@ -1,0 +1,69 @@
+<h2><span ng-hide="false" class="glyphicon glyphicon-time" title="Required"></span>Properties</h2>
+    <input type="text" class="form-control textbox" placeholder="Order name" required="" autofocus="">
+    <input type="text" class="form-control textbox" placeholder="Start date" required="" autofocus="">
+    <input type="text" class="form-control textbox" placeholder="Execution date" required="" autofocus="">
+    <textarea class="form-control textbox" rows="3" placeholder="Comment"></textarea>
+
+    <div class="tooltip-work" ng-click="$event.stopPropagation()" ng-show="showtooltipWork">
+        <h3 class="new-order">Edit work</h3>
+        <input type="text" class="form-control" required="" autofocus="" ng-model="workName"
+               placeholder="Work name"/>
+        <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
+               placeholder="Start date"/>
+        <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
+               placeholder="Execution date"/>
+                <textarea class="form-control new-order-text-area" rows="3" ng-model="description"
+                          placeholder="Description"></textarea>
+        <button type="button" class="btn btn-success" style="float: left"><span
+                class="glyphicon glyphicon glyphicon-floppy-disk"></span> Save
+        </button>
+    </div>
+    <h2>Work list</h2>
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="tooltip-east" ng-click="$event.stopPropagation()" ng-show="showtooltipEast">
+                <h3 class="new-order">New work</h3>
+                <input type="text" class="form-control" required="" autofocus="" ng-model="workName"
+                       placeholder="Work name"/>
+                <input type="text" class="form-control" required="" autofocus="" ng-model="startDate"
+                       placeholder="Start date"/>
+                <input type="text" class="form-control" required="" autofocus="" ng-model="executeDate"
+                       placeholder="Execution date"/>
+                <textarea class="form-control new-order-text-area" rows="4" ng-model="description"
+                          placeholder="Description"></textarea>
+                <button type="button" class="btn btn-info" style="float: left"><span
+                        class="glyphicon glyphicon glyphicon-floppy-disk"></span> Save
+                </button>
+            </div>
+            <button type="button" ng-click="toggleTooltipEast($event)" class="btn btn-success"><span
+                    class="glyphicon glyphicon glyphicon glyphicon-plus"></span> Add
+            </button>
+
+        </li>
+        <div ng-controller="workListCtrl as workList" class="list work contentHolder" id="Scrollbar1">
+
+            <table class="table table-bordered">
+                <tbody>
+                <tr ng-repeat="work in workList.works" class="list-element">
+                    <td ng-mouseover="checked=true" ng-mouseleave="checked=false">
+                        {{work.name}}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+
+                                <button type="button" ng-show="checked" ng-click="toggleTooltipWork($event)"
+                                        class="btn btn-info my-btn" title="Edit"><span
+                                        class="glyphicon glyphicon-edit"></span>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" ng-show="checked"
+                                        class="btn btn-danger my-btn" title="Remove"><span
+                                        class="glyphicon glyphicon-remove"></span></button>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </ul>

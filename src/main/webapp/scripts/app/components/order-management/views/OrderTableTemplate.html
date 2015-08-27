@@ -1,0 +1,26 @@
+<h2>Planed order</h2>
+<table ng-table="tableParams" class="table">
+    <tr ng-repeat="order in orders">
+        <td data-title="'Name'">
+            <span ng-if="!order.$edit">{{order.orderName}}</span>
+            <div ng-if="order.$edit"><input class="form-control" type="text" ng-model="order.orderName" /></div>
+        </td>
+        <td title="'StartTime'" width="200">
+            <span ng-if="!order.$edit">{{order.orderStartTime}}</span>
+            <div ng-if="order.$edit"><input class="form-control" type="date" ng-model="order.orderStartTime" /></div>
+        </td>
+        <td data-title="'ExecutionTime'" width="200">
+            <span ng-if="!order.$edit">{{order.orderExecutionTime}}</span>
+            <div ng-if="order.$edit"><input class="form-control" type="date" ng-model="order.orderExecutionTime" /></div>
+        </td>
+        <td data-title="'Comment'" width="200">
+            <span ng-if="!order.$edit">{{order.orderComment}}</span>
+            <div ng-if="order.$edit"><input class="form-control" type="text" ng-model="order.orderComment" /></div>
+        </td>
+        <td data-title="'Actions'" width="200">
+            <a ng-if="!order.$edit" href="" class="btn btn-default btn-xs" ng-click="editOrder(order)">Edit</a>
+            <a ng-if="order.$edit" href="" class="btn btn-primary btn-xs" ng-click="save(order)">Save</a>
+            <a ng-if="true" href="" class="btn btn-primary btn-xs" ng-click="removeOrder(order)">Remove</a>
+        </td>
+    </tr>
+</table>

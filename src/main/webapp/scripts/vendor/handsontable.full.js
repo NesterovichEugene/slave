@@ -1885,7 +1885,7 @@ Handsontable.Core = function (rootElement, userSettings) {
 
 
   /**
-   * Validates all cells using their validator functions and calls callback when finished. Does not render the view
+   * Validates all cells using their validator functions and calls callback when finished. Does not render the views
    * @param callback
    */
   this.validateCells = function (callback) {
@@ -2629,7 +2629,7 @@ if (document.documentElement.classList) {
   };
 }
 else {
-  //http://snipplr.com/view/3561/addclass-removeclass-hasclass/
+  //http://snipplr.com/views/3561/addclass-removeclass-hasclass/
   Handsontable.Dom.hasClass = function (ele, cls) {
     return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
   };
@@ -9074,7 +9074,7 @@ Handsontable.PluginHooks = Handsontable.hooks; //in future move this line to leg
 })(Handsontable);
 
 /**
- * This plugin sorts the view by a column (but does not sort the data source!)
+ * This plugin sorts the views by a column (but does not sort the data source!)
  * @constructor
  */
 function HandsontableColumnSorting() {
@@ -17627,7 +17627,7 @@ window.cancelRequestAnimFrame = (function () {
     clearTimeout
 })();
 
-//http://snipplr.com/view/13523/
+//http://snipplr.com/views/13523/
 //modified for speed
 //http://jsperf.com/getcomputedstyle-vs-style-vs-css/8
 if (!window.getComputedStyle) {

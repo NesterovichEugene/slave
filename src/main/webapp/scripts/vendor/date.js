@@ -28,7 +28,7 @@ angular.module('ui.date', [])
         // If we have a controller (i.e. ngModelController) then wire it up
         if (controller) {
 
-          // Set the view value in a $apply block when users selects
+          // Set the views value in a $apply block when users selects
           // (calling directive user's function too if provided)
           var _onSelect = opts.onSelect || angular.noop;
           opts.onSelect = function (value, picker) {

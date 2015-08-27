@@ -2717,7 +2717,7 @@ function jqLiteDocumentLoaded(action, win) {
   win = win || window;
   if (win.document.readyState === 'complete') {
     // Force the action to be run async for consistent behaviour
-    // from the action's point of view
+    // from the action's point of views
     // i.e. it will definitely not be in a $apply
     win.setTimeout(action);
   } else {
@@ -6373,10 +6373,10 @@ function $TemplateCacheProvider() {
  * Calling the linking function returns the element of the template. It is either the original
  * element passed in, or the clone of the element if the `cloneAttachFn` is provided.
  *
- * After linking the view is not updated until after a call to $digest which typically is done by
+ * After linking the views is not updated until after a call to $digest which typically is done by
  * Angular automatically.
  *
- * If you need access to the bound view, there are two ways to do it:
+ * If you need access to the bound views, there are two ways to do it:
  *
  * - If you are not asking the linking function to clone the template, create the DOM element(s)
  *   before you send them to the compiler and keep this reference around.
@@ -6384,7 +6384,7 @@ function $TemplateCacheProvider() {
  *     var element = $compile('<p>{{total}}</p>')(scope);
  *   ```
  *
- * - if on the other hand, you need the element to be cloned, the view reference from the original
+ * - if on the other hand, you need the element to be cloned, the views reference from the original
  *   example would not point to the clone, but rather to the original template that was cloned. In
  *   this case, you can access the clone via the cloneAttachFn:
  *   ```js
@@ -13515,7 +13515,7 @@ function $$RAFProvider() { //rAF
  *
  * Every application has a single root {@link ng.$rootScope.Scope scope}.
  * All other scopes are descendant scopes of the root scope. Scopes provide separation
- * between the model and the view, via a mechanism for watching the model for changes.
+ * between the model and the views, via a mechanism for watching the model for changes.
  * They also provide an event emission/broadcast and subscription facility. See the
  * {@link guide/scope developer guide on scopes}.
  */
@@ -18669,7 +18669,7 @@ var inputType = {
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
    *    minlength.
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
-   *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
+   *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of
    *    any length.
    * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
    *    that contains the regular expression body that will be converted to a regular expression
@@ -19115,7 +19115,7 @@ var inputType = {
    *
    * The model must always be a Date object, otherwise Angular will throw an error.
    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
-   * If the model is not set to the first of the month, the next view to model update will set it
+   * If the model is not set to the first of the month, the next views to model update will set it
    * to the first of the month.
    *
    * The timezone to be used to read/write the `Date` instance in the model can be defined using
@@ -19218,7 +19218,7 @@ var inputType = {
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
    *    minlength.
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
-   *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
+   *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of
    *    any length.
    * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
    *    that contains the regular expression body that will be converted to a regular expression
@@ -19306,7 +19306,7 @@ var inputType = {
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
    *    minlength.
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
-   *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
+   *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of
    *    any length.
    * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
    *    that contains the regular expression body that will be converted to a regular expression
@@ -19395,7 +19395,7 @@ var inputType = {
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
    *    minlength.
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
-   *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
+   *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of
    *    any length.
    * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
    *    that contains the regular expression body that will be converted to a regular expression
@@ -20002,7 +20002,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
  *    minlength.
  * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
- *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of any
+ *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of any
  *    length.
  * @param {string=} ngPattern Sets `pattern` validation error key if the value does not match the
  *    RegExp pattern expression. Expected value is `/regexp/` for inline patterns or `regexp` for
@@ -20035,7 +20035,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
  *    minlength.
  * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
- *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of any
+ *    maxlength. Setting the attribute to a negative or non-numeric value, allows views values of any
  *    length.
  * @param {string=} ngPattern Sets `pattern` validation error key if the value does not match the
  *    RegExp pattern expression. Expected value is `/regexp/` for inline patterns or `regexp` for
@@ -20162,7 +20162,7 @@ var VALID_CLASS = 'ng-valid',
  * @ngdoc type
  * @name ngModel.NgModelController
  *
- * @property {string} $viewValue Actual string value in the view.
+ * @property {string} $viewValue Actual string value in the views.
  * @property {*} $modelValue The value in the model that the control is bound to.
  * @property {Array.<Function>} $parsers Array of functions to execute, as a pipeline, whenever
        the control reads value from the DOM. The functions are called in array order, each passing
@@ -20236,7 +20236,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * ```
  *
  * @property {Array.<Function>} $viewChangeListeners Array of functions to execute whenever the
- *     view value has changed. It is called with no arguments, and its return value is ignored.
+ *     views value has changed. It is called with no arguments, and its return value is ignored.
  *     This can be used in place of additional $watches against the model value.
  *
  * @property {Object} $error An object hash with all failing validator ids as keys.
@@ -20416,12 +20416,12 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * @name ngModel.NgModelController#$render
    *
    * @description
-   * Called when the view needs to be updated. It is expected that the user of the ng-model
+   * Called when the views needs to be updated. It is expected that the user of the ng-model
    * directive will implement this method.
    *
    * The `$render()` method is invoked in the following situations:
    *
-   * * `$rollbackViewValue()` is called.  If we are rolling back the view value to the last
+   * * `$rollbackViewValue()` is called.  If we are rolling back the views value to the last
    *   committed value then `$render()` is called to update the input control.
    * * The value referenced by `ng-model` is changed programmatically and both the `$modelValue` and
    *   the `$viewValue` are different to last time.
@@ -20650,8 +20650,8 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
 
     var viewValue = ctrl.$$lastCommittedViewValue;
     // Note: we use the $$rawModelValue as $modelValue might have been
-    // set to undefined during a view -> model update that found validation
-    // errors. We can't parse the view here, since that could change
+    // set to undefined during a views -> model update that found validation
+    // errors. We can't parse the views here, since that could change
     // the model although neither viewValue nor the model on the scope changed
     var modelValue = ctrl.$$rawModelValue;
 
@@ -20788,7 +20788,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
 
     $timeout.cancel(pendingDebounce);
 
-    // If the view value has not changed then we should just exit, except in the case where there is
+    // If the views value has not changed then we should just exit, except in the case where there is
     // a native validator on the element. In this case the validation state may have changed even though
     // the viewValue has stayed empty.
     if (ctrl.$$lastCommittedViewValue === viewValue && (viewValue !== '' || !ctrl.$$hasNativeValidators)) {
@@ -20866,9 +20866,9 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * @name ngModel.NgModelController#$setViewValue
    *
    * @description
-   * Update the view value.
+   * Update the views value.
    *
-   * This method should be called when an input directive want to change the view value; typically,
+   * This method should be called when an input directive want to change the views value; typically,
    * this is done from within a DOM event handler.
    *
    * For example {@link ng.directive:input input} calls it when the value of the input changes and
@@ -20898,7 +20898,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    *
    * Note that calling this function does not trigger a `$digest`.
    *
-   * @param {string} value Value from the view.
+   * @param {string} value Value from the views.
    * @param {string} trigger Event that triggered the update.
    */
   this.$setViewValue = function(value, trigger) {
@@ -20945,7 +20945,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
   // 3. ng-change kicks in and reverts scope value to 'a'
   //    -> scope value did not change since the last digest as
   //       ng-change executes in apply phase
-  // 4. view should be changed back to 'a'
+  // 4. views should be changed back to 'a'
   $scope.$watch(function ngModelWatch() {
     var modelValue = ngModelGet($scope);
 
@@ -20988,7 +20988,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  *
  * `ngModel` is responsible for:
  *
- * - Binding the view into the model, which other directives such as `input`, `textarea` or `select`
+ * - Binding the views into the model, which other directives such as `input`, `textarea` or `select`
  *   require.
  * - Providing validation behavior (i.e. required, number, email, url).
  * - Keeping the state of the control (valid/invalid, dirty/pristine, touched/untouched, validation errors).
@@ -21094,7 +21094,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * function that returns a representation of the model when called with zero arguments, and sets
  * the internal state of a model when called with an argument. It's sometimes useful to use this
  * for models that have an internal representation that's different than what the model exposes
- * to the view.
+ * to the views.
  *
  * <div class="alert alert-success">
  * **Best Practice:** It's best to keep getters fast because Angular is likely to call them more
@@ -21243,7 +21243,7 @@ var ngModelDirective = ['$rootScope', function($rootScope) {
  *     var counter = element(by.binding('counter'));
  *     var debug = element(by.binding('confirmed'));
  *
- *     it('should evaluate the expression if changing from view', function() {
+ *     it('should evaluate the expression if changing from views', function() {
  *       expect(counter.getText()).toContain('0');
  *
  *       element(by.id('ng-change-example1')).click();
@@ -21577,7 +21577,7 @@ var ngValueDirective = function() {
  * events that will trigger a model update and/or a debouncing delay so that the actual update only
  * takes place when a timer expires; this timer will be reset after another change takes place.
  *
- * Given the nature of `ngModelOptions`, the value displayed inside input fields in the view might
+ * Given the nature of `ngModelOptions`, the value displayed inside input fields in the views might
  * be different than the value in the actual model. This means that if you update the model you
  * should also invoke {@link ngModel.NgModelController `$rollbackViewValue`} on the relevant input field in
  * order to make sure it is synchronized with the model and that any debounced action is canceled.
@@ -22304,7 +22304,7 @@ function classDirective(name, selector) {
    The ngClass directive still supports CSS3 Transitions/Animations even if they do not follow the ngAnimate CSS naming structure.
    Upon animation ngAnimate will apply supplementary CSS classes to track the start and end of an animation, but this will not hinder
    any pre-existing CSS transitions already on the element. To get an idea of what happens during a class-based animation, be sure
-   to view the step by step details of {@link ng.$animate#addClass $animate.addClass} and
+   to views the step by step details of {@link ng.$animate#addClass $animate.addClass} and
    {@link ng.$animate#removeClass $animate.removeClass}.
  */
 var ngClassDirective = classDirective('', true);
@@ -22417,7 +22417,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
  *
  * The directive can be applied to the `<body>` element, but the preferred usage is to apply
  * multiple `ngCloak` directives to small portions of the page to permit progressive rendering
- * of the browser view.
+ * of the browser views.
  *
  * `ngCloak` works in cooperation with the following css rule embedded within `angular.js` and
  * `angular.min.js`.
@@ -22473,7 +22473,7 @@ var ngCloakDirective = ngDirective({
  * @name ngController
  *
  * @description
- * The `ngController` directive attaches a controller class to the view. This is a key aspect of how angular
+ * The `ngController` directive attaches a controller class to the views. This is a key aspect of how angular
  * supports the principles behind the Model-View-Controller design pattern.
  *
  * MVC components in angular:
@@ -23953,7 +23953,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  * Notice that we are still using two plural categories(one, other), but we added
  * three explicit number rules 0, 1 and 2.
  * When one person, perhaps John, views the document, "John is viewing" will be shown.
- * When three people view the document, no explicit number rule is found, so
+ * When three people views the document, no explicit number rule is found, so
  * an offset of 2 is taken off 3, and Angular uses 1 to decide the plural category.
  * In this case, plural category 'one' is matched and "John, Mary and one other person are viewing"
  * is shown.

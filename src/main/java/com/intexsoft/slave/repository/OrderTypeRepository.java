@@ -2,8 +2,6 @@ package com.intexsoft.slave.repository;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.intexsoft.slave.model.OrderType;
 
 

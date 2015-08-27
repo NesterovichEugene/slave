@@ -1,30 +1,13 @@
 'use strict';
-/**
- * @namespace com_klingel_ko
- */
-var app = angular.module('orgatool',
+var app = angular.module('app',
     [
         'ui.bootstrap',
         'ui.router',
-        'ngHandsontable',
         'notifications',
-        'localytics.directives',
+        'ngTable',
         'general-module',
-        'order-management-module',
-        'angularSpectrumColorpicker',
-        'angularFileUpload',
-        'ngGrid',
-        'ui.date',
-        'current-orders-module',
-        'site-map-module',
-        'frame-orders-module',
-        'calendar-module',
-        'sheet-plan-module',
-        'fako-tool-module',
-        'my-todo-module',
-        'order-archive-module',
-        'reports-module',
-        'news-module'
+        'order-management-module'
+
     ]);
 
 app.config(routingConfig);

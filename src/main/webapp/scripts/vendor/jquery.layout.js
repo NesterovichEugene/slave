@@ -29,7 +29,7 @@
  *	check $.fn.disableSelection - this is in jQuery UI 1.9.x
  */
 
-// NOTE: For best readability, view with a fixed-width font and tabs equal to 4-chars
+// NOTE: For best readability, views with a fixed-width font and tabs equal to 4-chars
 
 ;(function ($) {
 

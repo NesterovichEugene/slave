@@ -30,7 +30,7 @@
     border-color: grey transparent;
 }
 
-.wrapper-dropdown-2 .dropdown {
+.wrapper-dropdown-2 .drop {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -51,7 +51,7 @@
 
 /* Hover state */
 
-.wrapper-dropdown-2 .dropdown li:hover {
+.wrapper-dropdown-2 .drop li:hover {
     color: #5BC0DE;
     text-align: center;
 }
@@ -61,7 +61,7 @@
     text-align: center;
 }
 
-.wrapper-dropdown-2.active .dropdown {
+.wrapper-dropdown-2.active .drop {
     opacity: 1;
     text-align: center;
     pointer-events: auto;

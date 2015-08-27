@@ -3,8 +3,6 @@ package com.intexsoft.slave.repository;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.intexsoft.slave.model.FrameOrder;
 import com.intexsoft.slave.model.Order;
 import com.intexsoft.slave.model.OrderType;

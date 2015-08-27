@@ -1203,7 +1203,7 @@ angular.module('ui.router.router').provider('$urlRouter', $UrlRouterProvider);
  * on state.
  *
  * A state corresponds to a "place" in the application in terms of the overall UI and
- * navigation. A state describes (via the controller / template / view properties) what
+ * navigation. A state describes (via the controller / template / views properties) what
  * the UI looks like and does at that place.
  *
  * States often have things in common, and the primary way of factoring out these
@@ -1271,10 +1271,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
       return state.params;
     },
 
-    // If there is no explicit multi-view configuration, make one up so we don't have
-    // to handle both cases in the view directive later. Note that having an explicit
-    // 'views' property will mean the default unnamed view properties are ignored. This
-    // is also a good time to resolve view names to absolute names, so everything is a
+    // If there is no explicit multi-views configuration, make one up so we don't have
+    // to handle both cases in the views directive later. Note that having an explicit
+    // 'views' property will mean the default unnamed views properties are ignored. This
+    // is also a good time to resolve views names to absolute names, so everything is a
     // straight lookup at link time.
     views: function(state) {
       var views = {};
@@ -1494,9 +1494,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
    *   navigable).
    * - **params** `{object}` - returns an array of state params that are ensured to 
    *   be a super-set of parent's params.
-   * - **views** `{object}` - returns a views object where each key is an absolute view 
+   * - **views** `{object}` - returns a views object where each key is an absolute views
    *   name (i.e. "viewName@stateName") and each value is the config object 
-   *   (template, controller) for the view. Even when you don't use the views object 
+   *   (template, controller) for the views. Even when you don't use the views object
    *   explicitly on a state config, one is still created for you internally.
    *   So by decorating this builder function you have access to decorating template 
    *   and controller properties.
@@ -1515,7 +1515,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
    *   var result = {},
    *       views = parent(state);
    *
-   *   angular.forEach(view, function (config, name) {
+   *   angular.forEach(views, function (config, name) {
    *     var autoName = (state.name + '.' + name).replace('.', '/');
    *     config.templateUrl = config.templateUrl || '/partials/' + autoName + '.html';
    *     result[name] = config;
@@ -2038,8 +2038,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
 
       // Resolve locals for the remaining states, but don't update any global state just
       // yet -- if anything fails to resolve the current state needs to remain untouched.
-      // We also set up an inheritance chain for the locals here. This allows the view directive
-      // to quickly look up the correct definition for each view in the current state. Even
+      // We also set up an inheritance chain for the locals here. This allows the views directive
+      // to quickly look up the correct definition for each views in the current state. Even
       // though we create the locals object itself outside resolveState(), it is initially
       // empty and gets filled asynchronously. We need to keep track of the promise for the
       // (fully resolved) current locals, and pass this down the chain.
@@ -2343,7 +2343,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
       var $stateParams = (paramsAreFiltered) ? params : filterByKeys(state.params, params);
       var locals = { $stateParams: $stateParams };
 
-      // Resolve 'global' dependencies for the state, i.e. those not specific to a view.
+      // Resolve 'global' dependencies for the state, i.e. those not specific to a views.
       // We're also including $stateParams in this; that way the parameters are restricted
       // to the set that should be visible to the state, and are independent of when we update
       // the global $state and $stateParams values.
@@ -2413,11 +2413,11 @@ function $ViewProvider() {
   $get.$inject = ['$rootScope', '$templateFactory'];
   function $get(   $rootScope,   $templateFactory) {
     return {
-      // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
+      // $views.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
       /**
        * @ngdoc function
        * @name ui.router.state.$view#load
-       * @methodOf ui.router.state.$view
+       * @methodOf ui.router.state.$views
        *
        * @description
        *
@@ -2437,21 +2437,21 @@ function $ViewProvider() {
         /**
          * @ngdoc event
          * @name ui.router.state.$state#$viewContentLoading
-         * @eventOf ui.router.state.$view
+         * @eventOf ui.router.state.$views
          * @eventType broadcast on root scope
          * @description
          *
-         * Fired once the view **begins loading**, *before* the DOM is rendered.
+         * Fired once the views **begins loading**, *before* the DOM is rendered.
          *
          * @param {Object} event Event object.
-         * @param {Object} viewConfig The view config properties (template, controller, etc).
+         * @param {Object} viewConfig The views config properties (template, controller, etc).
          *
          * @example
          *
          * <pre>
          * $scope.$on('$viewContentLoading',
          * function(event, viewConfig){
-         *     // Access to all the view config properties.
+         *     // Access to all the views config properties.
          *     // and one special property 'targetView'
          *     // viewConfig.targetView
          * });
@@ -2499,10 +2499,10 @@ function $ViewScrollProvider() {
    * @requires $timeout
    *
    * @description
-   * When called with a jqLite element, it scrolls the element into view (after a
+   * When called with a jqLite element, it scrolls the element into views (after a
    * `$timeout` so the DOM has time to refresh).
    *
-   * If you prefer to rely on `$anchorScroll` to scroll the view to the anchor,
+   * If you prefer to rely on `$anchorScroll` to scroll the views to the anchor,
    * this can be enabled by calling {@link ui.router.state.$uiViewScrollProvider#methods_useAnchorScroll `$uiViewScrollProvider.useAnchorScroll()`}.
    */
   this.$get = ['$anchorScroll', '$timeout', function ($anchorScroll, $timeout) {
@@ -2522,7 +2522,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
 
 /**
  * @ngdoc directive
- * @name ui.router.state.directive:ui-view
+ * @name ui.router.state.directive:ui-views
  *
  * @requires ui.router.state.$state
  * @requires $compile
@@ -2534,41 +2534,41 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * @restrict ECA
  *
  * @description
- * The ui-view directive tells $state where to place your views.
+ * The ui-views directive tells $state where to place your views.
  *
- * @param {string=} ui-view A view name. The name should be unique amongst the other views in the
+ * @param {string=} ui-views A views name. The name should be unique amongst the other views in the
  * same state. You can have views of the same name that live in different states.
  *
  * @param {string=} autoscroll It allows you to set the scroll behavior of the browser window
- * when a view is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
+ * when a views is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
  * service, {@link ui.router.state.$uiViewScroll}. This custom service let's you
- * scroll ui-view elements into view when they are populated during a state activation.
+ * scroll ui-views elements into views when they are populated during a state activation.
  *
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)
  * functionality, call `$uiViewScrollProvider.useAnchorScroll()`.*
  *
- * @param {string=} onload Expression to evaluate whenever the view updates.
+ * @param {string=} onload Expression to evaluate whenever the views updates.
  * 
  * @example
- * A view can be unnamed or named. 
+ * A views can be unnamed or named.
  * <pre>
  * <!-- Unnamed -->
- * <div ui-view></div> 
+ * <div ui-views></div>
  * 
  * <!-- Named -->
- * <div ui-view="viewName"></div>
+ * <div ui-views="viewName"></div>
  * </pre>
  *
- * You can only have one unnamed view within any template (or root html). If you are only using a 
- * single view and it is unnamed then you can populate it like so:
+ * You can only have one unnamed views within any template (or root html). If you are only using a
+ * single views and it is unnamed then you can populate it like so:
  * <pre>
- * <div ui-view></div> 
+ * <div ui-views></div>
  * $stateProvider.state("home", {
  *   template: "<h1>HELLO!</h1>"
  * })
  * </pre>
  * 
- * The above is a convenient shortcut equivalent to specifying your view explicitly with the {@link ui.router.state.$stateProvider#views `views`}
+ * The above is a convenient shortcut equivalent to specifying your views explicitly with the {@link ui.router.state.$stateProvider#views `views`}
  * config property, by name, in this case an empty name:
  * <pre>
  * $stateProvider.state("home", {
@@ -2580,11 +2580,11 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * })
  * </pre>
  * 
- * But typically you'll only use the views property if you name your view or have more than one view 
- * in the same template. There's not really a compelling reason to name a view if its the only one, 
+ * But typically you'll only use the views property if you name your views or have more than one views
+ * in the same template. There's not really a compelling reason to name a views if its the only one,
  * but you could if you wanted, like so:
  * <pre>
- * <div ui-view="main"></div>
+ * <div ui-views="main"></div>
  * </pre> 
  * <pre>
  * $stateProvider.state("home", {
@@ -2598,9 +2598,9 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * 
  * Really though, you'll use views to set up multiple views:
  * <pre>
- * <div ui-view></div>
- * <div ui-view="chart"></div> 
- * <div ui-view="data"></div> 
+ * <div ui-views></div>
+ * <div ui-views="chart"></div>
+ * <div ui-views="data"></div>
  * </pre>
  * 
  * <pre>
@@ -2623,14 +2623,14 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  *
  * <pre>
  * <!-- If autoscroll present with no expression,
- *      then scroll ui-view into view -->
- * <ui-view autoscroll/>
+ *      then scroll ui-views into views -->
+ * <ui-views autoscroll/>
  *
  * <!-- If autoscroll present with valid expression,
- *      then scroll ui-view into view if expression evaluates to true -->
- * <ui-view autoscroll='true'/>
- * <ui-view autoscroll='false'/>
- * <ui-view autoscroll='scopeVariable'/>
+ *      then scroll ui-views into views if expression evaluates to true -->
+ * <ui-views autoscroll='true'/>
+ * <ui-views autoscroll='false'/>
+ * <ui-views autoscroll='scopeVariable'/>
  * </pre>
  */
 $ViewDirective.$inject = ['$state', '$injector', '$uiViewScroll'];
@@ -2745,11 +2745,11 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll) {
           currentScope = newScope;
           /**
            * @ngdoc event
-           * @name ui.router.state.directive:ui-view#$viewContentLoaded
-           * @eventOf ui.router.state.directive:ui-view
-           * @eventType emits on ui-view directive scope
+           * @name ui.router.state.directive:ui-views#$viewContentLoaded
+           * @eventOf ui.router.state.directive:ui-views
+           * @eventType emits on ui-views directive scope
            * @description           *
-           * Fired once the view is **loaded**, *after* the DOM is rendered.
+           * Fired once the views is **loaded**, *after* the DOM is rendered.
            *
            * @param {Object} event Event object.
            */

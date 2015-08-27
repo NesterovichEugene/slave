@@ -1,6 +1,5 @@
 package com.intexsoft.slave.controller;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.intexsoft.slave.model.FrameOrder;
 import com.intexsoft.slave.model.Order;
-import com.intexsoft.slave.model.Work;
 import com.intexsoft.slave.services.FrameOrderService;
 import com.intexsoft.slave.services.OrderService;
 

@@ -32,13 +32,7 @@ public class OrderController
 	@Autowired
 	private FrameOrderService frameOrderService;
 
-	@RequestMapping(value = "/addOrderToFrameOrder", method = RequestMethod.POST)
-	public Order addToFrameOrder(@PathVariable String frameOrderId, @RequestBody Order order)
-	{
-		FrameOrder frameOrder = frameOrderService.findOne(Long.getLong(frameOrderId));
-		order.frameOrder = frameOrder;
-		return orderService.create(order);
-	}
+	
 
 	@RequestMapping(value = "/createOrder", method = RequestMethod.POST)
 	public Order create(@RequestBody @Valid Order order)
@@ -65,24 +59,24 @@ public class OrderController
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@RequestBody long id)
+	public ResponseEntity<Boolean> delete(@RequestBody @Valid Order order)
 	{
-		orderService.delete(id);
+		orderService.delete(order.identity);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/modifyOrderType", method = RequestMethod.POST)
-	public Order modifyOrderType(@PathVariable String orderId, @RequestBody OrderType orderType)
+	public Order modifyOrderType(@RequestBody @Valid Order order, @RequestBody OrderType orderType)
 	{
-		Order order = orderService.findOne(Long.getLong(orderId));
 		order.orderType = orderType;
-		return orderService.create(order);
+		return orderService.update(order);
 	}
 
-	@RequestMapping(value = "/{id}/loadWorks", method = RequestMethod.GET)
-	public List<Work> listOrderWorks(@PathVariable("id") long id)
+	@RequestMapping(value = "/addWorkToOrder", method = RequestMethod.POST)
+	public Order addToOrder(@RequestBody @Valid Order order, @RequestBody Work work)
 	{
-		Order order = orderService.findOne(id);
-		return (List<Work>) workService.findWorkByOrder(order);
+		work.workOrder = order;
+		workService.create(work);
+		return orderService.create(order);
 	}
 }

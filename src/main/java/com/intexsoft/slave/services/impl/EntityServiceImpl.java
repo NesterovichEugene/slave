@@ -32,4 +32,8 @@ public abstract class EntityServiceImpl<T extends AbstractEntity> implements Ent
 	{
 		getRepository().delete(id);
 	}
+	
+	public T update (T entity){
+		return getRepository().save(entity);
+	}
 }

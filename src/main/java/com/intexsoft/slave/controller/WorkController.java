@@ -1,5 +1,7 @@
 package com.intexsoft.slave.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +28,13 @@ public class WorkController
 	@Autowired
 	private OrderService orderService;
 
-	@RequestMapping(value = "/addWorkToOrder", method = RequestMethod.POST)
-	public Order addToOrder(@PathVariable String orderId, @RequestBody Work work)
-	{
-		Order order = orderService.findOne(Long.getLong(orderId));
-		work.workOrder = order;
-		workService.create(work);
-		return orderService.create(order);
-	}
+	
 
+	@RequestMapping(value = "/loadWorksByOrder", method = RequestMethod.GET)
+	public List<Work> listOrderWorks(@RequestBody @Valid Order order)
+	{
+		return (List<Work>) workService.findWorkByOrder(order);
+	}
 	
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -43,25 +43,24 @@ public class WorkController
 		return workService.findOne(id);
 	}
 
-	@RequestMapping(value = "/editWork/{id}", method = RequestMethod.PUT)
-	public Work update(@PathVariable("id") long id, @RequestBody @Valid Work work)
+	@RequestMapping(value = "/editWork", method = RequestMethod.PUT)
+	public Work update(@RequestBody @Valid Work work)
 	{
-		return workService.create(work);
+		return workService.update(work);
 	}
 
-	@RequestMapping(value = "/deleteWork/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@PathVariable("id") long id)
+	@RequestMapping(value = "/deleteWork", method = RequestMethod.DELETE)
+	public ResponseEntity<Boolean> delete(@RequestBody @Valid Work work)
 	{
-		workService.delete(id);
+		workService.delete(work.identity);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/modifyWorkType", method = RequestMethod.POST)
-	public Work modifyWorkType(@PathVariable String workId, @RequestBody WorkType workType)
+	public Work modifyWorkType(@RequestBody @Valid Work work, @RequestBody WorkType workType)
 	{
-		Work work = workService.findOne(Long.getLong(workId));
 		work.workType = workType;
-		return workService.create(work);
+		return workService.update(work);
 	}
-	// add, delete, update, read
+	
 }

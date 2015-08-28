@@ -21,4 +21,9 @@ function OrderTableService($q, remoteService, ordersModel) {
         });
     };
 
+    service.remove = function (order) {
+        return remoteService.deletePromise('/service/orders/delete', order).then(function (orders) {
+        });
+    };
+
 }

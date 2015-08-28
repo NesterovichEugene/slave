@@ -35,8 +35,8 @@ function OrderTableController($injector, $scope, $rootScope, ordersModel) {
     initController();
 
     $scope.removeOrder = function (order) {
-
-        $scope.orders = _.reject($scope.orders, order);
+        orderTableService.remove(order);
+        //$scope.orders = _.reject($scope.orders, order);
     };
 
     $scope.editOrder = function (order) {
@@ -48,6 +48,12 @@ function OrderTableController($injector, $scope, $rootScope, ordersModel) {
         orderTableService.update(order);
         order.$edit = false
     };
+
+    $scope.create = function () {
+        var order = {orderName: '', orderStartTime: '', orderExecutionTime: '', orderComment: ''};
+        $scope.orders.push(order);
+        order.$edit = true;
+    }
 
     function initController() {
         orderTableService.loadAll();

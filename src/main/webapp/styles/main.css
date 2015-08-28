@@ -32,79 +32,9 @@ h2 {
     z-index: 5 !important;
 }
 
-.navbar-right {
-    margin-right: 20px;
-}
-
-.list-element .navbar-right{
-    margin-right: 0px;
-}
-
-.btn {
-    margin-right: 5px;
-    margin-top: 7px;
-    font-family: 'Anton', sans-serif;
-}
-
-.center.btn{
-    margin-right: -5px;
-}
-
-.my-btn{
-    margin-top: 0px;
-    width: 25px;
-    height: 25px;
-}
-
-.glyphicon-remove{
-    left: -7px;
-    top: -2px
-}
-.glyphicon-edit{
-    left: -7px;
-    top: -2px
-}
-
-.list {
-    margin-top: 50px;
-    position: absolute;
-    width: 94%;
-    height: 82%;
-    overflow: visible;
-    font-family: 'Hind', sans-serif;
-    font-size: 19px;
-    color: #4A454F;
-}
-.center.list{
-    overflow: visible;
-    margin-top: 10px;
-}
-
-.list.work {
-    height: 40%;
-}
-
-.list-element:hover {
-    background: #CEE3F6;
-}
-
-.center-ul{
-    font-family: 'Anton', sans-serif;
-    height: 30px;
-    margin-left: -30px;
-    color: white;
-    font-size: 20px;
-    background: #4A454F;
-}
-
-.order-date{
-    margin-left: 300px
-}
-
-.textbox{
+.ui-layout-west .table-holder{
+    width:auto;
+    height: 550px;
+    overflow: auto;
     text-align: center;
-    font-size: 16px;
-    font-family: inherit;
-    color: #4B4B4B;
-    font-weight: bold;
 }

@@ -1,17 +1,15 @@
-<!--glyphicons-alarm-->
 <!DOCTYPE html>
 <html ng-app="app">
+
+<!-- Fonts-->
 <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
-<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Hind:600' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
 
+<!-- Stylesheets-->
 <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/editToolStyle.css">
 <link rel="stylesheet" href="styles/drop.css">
-<link rel="stylesheet" href="styles/perfect-scrollbar.min.css">
 
 
 <script src="scripts/vendor/angular.js"></script>
@@ -23,18 +21,14 @@
 <script src="scripts/vendor/ng-grid.js"></script>
 <script src="scripts/vendor/ui-bootstrap-tpls-0.12.0.js"></script>
 <script src="scripts/vendor/lodash.js"></script>
+<script src="scripts/vendor/moment.min.js"></script>
 
 <script src="scripts/app/components/base/utils.js"></script>
 <script src="scripts/app/components/base/BaseController.js"></script>
 <script src="scripts/app/components/base/BaseService.js"></script>
 
 <!-- Directives -->
-<!--<script src="scripts/app/directives/ngTable.directive.js"></script>-->
 <script src="scripts/app/directives/ngTable.module.js"></script>
-<!--<script src="scripts/app/directives/ngTableParams.js"></script>-->
-<!--<script src="scripts/app/directives/ngTableDynamic.directive.js"></script>-->
-<!--<script src="scripts/app/directives/ngTableController.js"></script>-->
-
 
 <!--NOTIFICATION-->
 <script src="scripts/app/components/notifications/notification-module.js"></script>
@@ -54,9 +48,6 @@
 <script src="scripts/app/components/order-management/services/OrderTableService.js"></script>
 <script src="scripts/app/components/order-management/controller/EditorTableController.js"></script>
 <script src="scripts/app/components/order-management/controller/OrderTableController.js"></script>
-<script src="scripts/scrollbar.js"></script>
-<script src="scripts/perfect-scrollbar.jquery.min.js"></script>
-<script src="scripts/perfect-scrollbar.min.js"></script>
 
 
 <!-- APP MODULE-->
@@ -64,17 +55,18 @@
 <script src="scripts/app/config/routing-config.js"></script>
 <script src="scripts/app/app.js"></script>
 
-<script> <!--создание и настройка layout-->
-var myLayout;
-$(document).ready(function () {
-    myLayout = $('body').layout({
-        applyDefaultStyles: true
-        , east__size: 250
-        , west__size: 300
-        , north__size: 50
-        , east__initClosed: true
+<!-- Layout-->
+<script>
+    var myLayout;
+    $(document).ready(function () {
+        myLayout = $('body').layout({
+            applyDefaultStyles: true
+            , east__size: 250
+            , west__size: 427
+            , north__size: 50
+            , east__initClosed: true
+        });
     });
-});
 </script>
 
 <title>Slave trade</title>

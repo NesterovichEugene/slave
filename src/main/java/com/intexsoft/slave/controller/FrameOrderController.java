@@ -26,11 +26,17 @@ public class FrameOrderController {
 
 	@Autowired
 	private OrderService orderService;
+	
+	@RequestMapping(value = "/addOrderToFrameOrder", method = RequestMethod.POST)
+	public Order addToFrameOrder(@RequestBody @Valid FrameOrder frameOrder, @RequestBody Order order)
+	{
+		order.frameOrder = frameOrder;
+		return orderService.update(order);
+	}
 
-	@RequestMapping(value = "/{id}/loadOrders", method = RequestMethod.GET)
-	public List<Order> listOrdersByFrameOrderId(@PathVariable("id") long id) {
-		FrameOrder frameOrder = frameOrderService.findOne(id);
-
+	@RequestMapping(value = "/loadOrdersByFrameOrder", method = RequestMethod.GET)
+	public List<Order> listOrdersByFrameOrder(@RequestBody @Valid FrameOrder frameOrder) {
+		
 		return (List<Order>) orderService.findOrderByFrameOrder(frameOrder);
 	}
 
@@ -49,15 +55,15 @@ public class FrameOrderController {
 		return frameOrderService.findOne(id);
 	}
 
-	@RequestMapping(value = "/editFrameOrder/{id}", method = RequestMethod.PUT)
-	public FrameOrder update(@PathVariable("id") long id,
+	@RequestMapping(value = "/editFrameOrder", method = RequestMethod.PUT)
+	public FrameOrder update(
 			@RequestBody @Valid FrameOrder frameOrder) {
-		return frameOrderService.create(frameOrder);
+		return frameOrderService.update(frameOrder);
 	}
 
-	@RequestMapping(value = "/deleteFrameOrder/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {
-		frameOrderService.delete(id);
+	@RequestMapping(value = "/deleteFrameOrder", method = RequestMethod.DELETE)
+	public ResponseEntity<Boolean> delete(@RequestBody @Valid FrameOrder frameOrder) {
+		frameOrderService.delete(frameOrder.identity);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 }

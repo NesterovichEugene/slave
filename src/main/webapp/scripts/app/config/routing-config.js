@@ -7,7 +7,7 @@ var routingConfig = function ($stateProvider, $urlRouterProvider, RoutingState) 
             views: {
 
                 'topPanel': {
-                    templateUrl: 'scripts/app/components/order-management/views/NavBar.html',
+                    templateUrl: 'scripts/app/components/order-management/views/NavbarTemplate.html',
                     controller: ''
                 },
                 'leftPanel': {

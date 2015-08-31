@@ -1,9 +1,12 @@
 package com.intexsoft.slave.controller;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,8 @@ import com.intexsoft.slave.services.WorkService;
 @RequestMapping("/work")
 public class WorkController
 {
+	
+	private static final Logger LOGGER = getLogger(WorkController.class);
 	@Autowired
 	private WorkService workService;
 	@Autowired

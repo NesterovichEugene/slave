@@ -7,7 +7,8 @@ var app = angular.module('app',
         'ngTable',
         'general-module',
         'frame-order-management-module',
-        'order-management-module'
+        'order-management-module',
+        'angularMoment'
 
     ]);
 

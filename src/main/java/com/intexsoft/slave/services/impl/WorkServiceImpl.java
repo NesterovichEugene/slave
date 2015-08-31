@@ -1,8 +1,11 @@
 package com.intexsoft.slave.services.impl;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +20,8 @@ import com.intexsoft.slave.services.WorkService;
 @Service
 @Transactional
 public class WorkServiceImpl extends EntityServiceImpl<Work> implements WorkService{
+	
+	private static final Logger LOGGER = getLogger(WorkServiceImpl.class);
 	
 	@Autowired
 	private WorkRepository workRepository;

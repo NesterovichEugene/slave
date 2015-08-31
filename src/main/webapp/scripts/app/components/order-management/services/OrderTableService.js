@@ -22,8 +22,8 @@ function OrderTableService($q, remoteService, ordersModel) {
     };
 
 
-    service.create = function (frameOrder) {
-        return remoteService.createPromise('service/frame_order/createFrameOrder', frameOrder).then(function (frameOrders) {
+    service.create = function (order) {
+        return remoteService.createPromise('service/orders/createOrder', order).then(function (orders) {
         });
     };
 

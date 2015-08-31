@@ -52,6 +52,7 @@ function OrderTableController($injector, $scope, $rootScope, ordersModel) {
     $scope.create = function () {
         var order = {orderName: '', orderStartTime: '', orderExecutionTime: '', orderComment: ''};
         $scope.orders.push(order);
+        orderTableService.create(order);
         order.$edit = true;
     }
 

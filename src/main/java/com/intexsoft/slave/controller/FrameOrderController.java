@@ -1,9 +1,12 @@
 package com.intexsoft.slave.controller;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +24,10 @@ import com.intexsoft.slave.services.OrderService;
 @RestController
 @RequestMapping("/frame_order")
 public class FrameOrderController {
+	
+	private static final Logger LOGGER = getLogger(FrameOrderController.class);
+	
+	
 	@Autowired
 	private FrameOrderService frameOrderService;
 
@@ -28,10 +35,9 @@ public class FrameOrderController {
 	private OrderService orderService;
 	
 	@RequestMapping(value = "/addOrderToFrameOrder", method = RequestMethod.POST)
-	public Order addToFrameOrder(@RequestBody @Valid FrameOrder frameOrder, @RequestBody Order order)
+	public void addToFrameOrder(@RequestBody @Valid FrameOrder frameOrder, @RequestBody Order order)
 	{
-		order.frameOrder = frameOrder;
-		return orderService.update(order);
+		frameOrderService.addOrderToFrameOrder(frameOrder, order);
 	}
 
 	@RequestMapping(value = "/loadOrdersByFrameOrder", method = RequestMethod.GET)

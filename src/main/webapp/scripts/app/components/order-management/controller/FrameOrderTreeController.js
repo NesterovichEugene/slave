@@ -44,6 +44,10 @@ function FrameOrderTreeController($injector, $scope, $rootScope, frameOrdersMode
         frameOrderTreeService.update(frameOrder);
         frameOrder.$edit = false
     };
+    
+    $scope.addOrderToFrame = function( frameOrder, order){
+    	 frameOrderTreeService.addOrder(frameOrder, order);
+    };
 
     $scope.create = function () {
         var frameOrder = {frameOrderName: $scope.frameOrderName, frameOrderStartTime: $scope.frameOrderStartTime, frameOrderExecutionTime: $scope.frameOrderExecutionTime, frameOrderComment: $scope.frameOrderComment};

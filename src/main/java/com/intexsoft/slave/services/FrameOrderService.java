@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.intexsoft.slave.model.FrameOrder;
+import com.intexsoft.slave.model.Order;
 
 public interface FrameOrderService extends EntityService<FrameOrder> {
 
@@ -14,5 +15,7 @@ public interface FrameOrderService extends EntityService<FrameOrder> {
 
 	List<FrameOrder> findFrameOrderByFrameOrderExecutionTime(
 			Date frameOrderExecutionTime);
+	
+	void addOrderToFrameOrder(FrameOrder frameOrder, Order order);
 
 }

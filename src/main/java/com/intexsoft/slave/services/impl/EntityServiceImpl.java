@@ -1,11 +1,21 @@
 package com.intexsoft.slave.services.impl;
 
+
+
+
+import static org.slf4j.LoggerFactory.getLogger;
+
+import org.slf4j.Logger;
+
 import com.intexsoft.slave.model.AbstractEntity;
 import com.intexsoft.slave.repository.EntityRepository;
 import com.intexsoft.slave.services.EntityService;
 
 public abstract class EntityServiceImpl<T extends AbstractEntity> implements EntityService<T>
 {
+	
+	
+	
 	public abstract EntityRepository<T> getRepository();
 
 	public T create(T entity)

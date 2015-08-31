@@ -1,9 +1,12 @@
 package com.intexsoft.slave.controller;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intexsoft.slave.model.FrameOrder;
 import com.intexsoft.slave.model.Order;
 import com.intexsoft.slave.model.OrderType;
 import com.intexsoft.slave.model.Work;
@@ -25,6 +27,10 @@ import com.intexsoft.slave.services.WorkService;
 @RequestMapping("/orders")
 public class OrderController
 {
+	
+	private static final Logger LOGGER = getLogger(OrderController.class);
+	
+	
 	@Autowired
 	private OrderService orderService;
 	@Autowired
@@ -58,10 +64,11 @@ public class OrderController
 		return orderService.create(order);
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Boolean> delete(@PathVariable("id") long id)
 	{
 		orderService.delete(id);
+		
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 

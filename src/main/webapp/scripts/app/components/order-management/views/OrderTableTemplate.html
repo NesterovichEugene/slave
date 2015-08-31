@@ -18,12 +18,12 @@
                 <div ng-if="order.$edit"><input class="form-control" type="text" ng-model="order.orderName"/></div>
             </td>
             <td title="'StartTime'" width="200">
-                <span ng-if="!order.$edit">{{order.orderStartTime}}</span>
+                <span ng-if="!order.$edit">{{order.orderStartTime | amDateFormat:'DD-MM-YYYY' }}</span>
 
                 <div ng-if="order.$edit"><input class="form-control" type="date" ng-model="order.orderStartTime"/></div>
             </td>
             <td data-title="'ExecutionTime'" width="200">
-                <span ng-if="!order.$edit">{{order.orderExecutionTime}}</span>
+                <span ng-if="!order.$edit">{{order.orderExecutionTime | amDateFormat:'DD-MM-YYYY'}}</span>
 
                 <div ng-if="order.$edit"><input class="form-control" type="date" ng-model="order.orderExecutionTime"/>
                 </div>

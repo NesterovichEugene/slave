@@ -30,5 +30,10 @@ function FrameOrderTreeService($q, remoteService, frameOrdersModel) {
         return remoteService.loadPromise('/service/frame_order/deleteFrameOrder/' + frameOrder.identity).then(function (frameOrders) {
         });
     };
+    
+    service.addOrder = function (frameOrder, order) {
+        return remoteService.loadPromise('/service/frame_order/addOrderToFrameOrder/' + frameOrder, order).then(function (frameOrders) {
+        });
+    };
 
 }

@@ -58,10 +58,10 @@ public class OrderController
 		return orderService.create(order);
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@RequestBody @Valid Order order)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Boolean> delete(@PathVariable("id") long id)
 	{
-		orderService.delete(order.identity);
+		orderService.delete(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 

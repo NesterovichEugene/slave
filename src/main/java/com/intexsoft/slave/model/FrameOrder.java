@@ -1,9 +1,13 @@
 package com.intexsoft.slave.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,5 +30,8 @@ public class FrameOrder extends AbstractEntity{
 	
 	@Column(name ="COMMENT")
 	public String frameOrderComment;
-
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "frameOrder",
+		cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	public List<Order> orders;
 }

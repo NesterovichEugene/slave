@@ -1,6 +1,3 @@
-/**
- * Created by sergei.svirepa on 17.12.2014.
- */
 function HttpConfig($httpProvider) {
     $httpProvider.interceptors.push(['$q', 'notifications', unAuthorizedInterceptor]);
 

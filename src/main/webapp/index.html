@@ -4,12 +4,14 @@
 <!-- Fonts-->
 <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
 <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 
 <!-- Stylesheets-->
 <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/editToolStyle.css">
-<link rel="stylesheet" href="styles/drop.css">
+<link rel="stylesheet" href="styles/treeStyle.css">
 
 
 <script src="scripts/vendor/angular.js"></script>
@@ -42,12 +44,15 @@
 
 <!--ORDER MANAGEMENT-->
 <script src="scripts/app/components/order-management/controller/workList.js"></script>
-<script src="scripts/app/components/order-management/controller/tree.js"></script>
 <script src="scripts/app/components/order-management/order-management-module.js"></script>
+<script src="scripts/app/components/order-management/frame-order-management-module.js"></script>
 <script src="scripts/app/components/order-management/models/OrdersModel.js"></script>
+<script src="scripts/app/components/order-management/models/FrameOrdersModel.js"></script>
+<script src="scripts/app/components/order-management/services/FrameOrderTreeService.js"></script>
 <script src="scripts/app/components/order-management/services/OrderTableService.js"></script>
-<script src="scripts/app/components/order-management/controller/EditorTableController.js"></script>
+<script src="scripts/app/components/order-management/controller/EditorTreeController.js"></script>
 <script src="scripts/app/components/order-management/controller/OrderTableController.js"></script>
+<script src="scripts/app/components/order-management/controller/FrameOrderTreeController.js"></script>
 
 
 <!-- APP MODULE-->
@@ -62,7 +67,7 @@
         myLayout = $('body').layout({
             applyDefaultStyles: true
             , east__size: 250
-            , west__size: 427
+            , west__size: 430
             , north__size: 50
             , east__initClosed: true
         });
@@ -72,29 +77,25 @@
 <title>Slave trade</title>
 </head>
 
-<body ng-controller="InlineEditorController" ng-click="hideTooltip()">
+<body ng-controller="TreeEditorController" ng-click="hideTooltip()">
 
-<div class="ui-layout-north">
-    <div ng-include="'scripts/app/components/order-management/views/north.html'"></div>
+<div id="north"
+     class="ui-layout-north">
+    <div ui-view="topPanel"></div>
 </div>
 
 <div id="center"
      class="ui-layout-center">
-    <div class=""
-         ui-view="centerPanel"
-            ></div>
+    <div ui-view="centerPanel"></div>
 </div>
 
 <div id="east"
      class="ui-layout-east">
-    <div class=""
-         ui-view="rightPanel"></div>
+    <div ui-view="rightPanel"></div>
 </div>
 
 <div class="ui-layout-west">
-    <div class="col-sm-12"
-         ui-view="leftPanel">
-    </div>
+    <div ui-view="leftPanel"></div>
 </div>
 
 </body>

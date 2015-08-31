@@ -13,6 +13,7 @@ h2 {
 
 .ui-layout-resizer-north {
     height: 0px !important;
+    z-ndex: 20 !important;
 }
 
 .ui-layout-center {
@@ -38,3 +39,16 @@ h2 {
     overflow: auto;
     text-align: center;
 }
+
+.ui-layout-west .table-holder .header{
+    font-size: 18px;
+    color: #5CB85C;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+}
+
+.btn{
+    font-family: 'Anton', sans-serif;
+}
+
+

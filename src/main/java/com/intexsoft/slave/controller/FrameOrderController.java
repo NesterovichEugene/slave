@@ -60,10 +60,10 @@ public class FrameOrderController {
 			@RequestBody @Valid FrameOrder frameOrder) {
 		return frameOrderService.update(frameOrder);
 	}
-
-	@RequestMapping(value = "/deleteFrameOrder", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> delete(@RequestBody @Valid FrameOrder frameOrder) {
-		frameOrderService.delete(frameOrder.identity);
+	
+	@RequestMapping(value = "/deleteFrameOrder/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) {
+		frameOrderService.delete(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 }

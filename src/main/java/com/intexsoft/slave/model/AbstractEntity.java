@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 
 @MappedSuperclass
@@ -16,6 +17,7 @@ public abstract class AbstractEntity extends VersionEntity implements BaseEntity
 	private static final long serialVersionUID = -3769694148579326997L;
 	
 	@Id
+	@PrimaryKeyJoinColumn
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false, unique = true)
 	public Long identity;

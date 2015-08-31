@@ -2,8 +2,10 @@ package com.intexsoft.slave.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -30,11 +32,12 @@ public class Order extends AbstractEntity {
 	@Column(name = "COMMENT")
 	public String orderComment;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
 	@JoinColumn(name = "TYPE")
 	public OrderType orderType;
 	
-	@ManyToOne
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "FRAME")
 	public FrameOrder frameOrder;
 	

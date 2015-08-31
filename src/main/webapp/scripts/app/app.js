@@ -6,6 +6,7 @@ var app = angular.module('app',
         'notifications',
         'ngTable',
         'general-module',
+        'frame-order-management-module',
         'order-management-module'
 
     ]);

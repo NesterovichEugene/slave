@@ -21,8 +21,15 @@ function OrderTableService($q, remoteService, ordersModel) {
         });
     };
 
+
+    service.create = function (frameOrder) {
+        return remoteService.createPromise('service/frame_order/createFrameOrder', frameOrder).then(function (frameOrders) {
+        });
+    };
+
+
     service.remove = function (order) {
-        return remoteService.deletePromise('/service/orders/delete', order).then(function (orders) {
+        return remoteService.loadPromise('/service/orders/delete/'+ order.identity).then(function (orders) {
         });
     };
 

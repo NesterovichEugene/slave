@@ -36,7 +36,7 @@ function OrderTableController($injector, $scope, $rootScope, ordersModel) {
 
     $scope.removeOrder = function (order) {
         orderTableService.remove(order);
-        //$scope.orders = _.reject($scope.orders, order);
+        $scope.orders = _.reject($scope.orders, order);
     };
 
     $scope.editOrder = function (order) {
